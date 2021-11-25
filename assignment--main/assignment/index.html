@@ -21,8 +21,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
 
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -37,8 +37,8 @@
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
 
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <!--
@@ -50,8 +50,19 @@
     crossorigin="anonymous"></script>
 
   <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArTUpPxK58U3xCnOuoFYGMtLfce4S0Ok4&libraries=places&callback=initMap"></script>
-  <script>var placesearch = 'place_searching'; $(document).ready(function () { var acomplete = new google.maps.places.Autocomplete((document.getElementById(placesearch)), { types: ['geocode'], }); google.maps.event.addListener(acomplete, 'place_changed', function () { var near_place = acomplete.getplace(); }); });</script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArTUpPxK58U3xCnOuoFYGMtLfce4S0Ok4&libraries=places&callback=initMap">
+  </script>
+  <script>
+    var placesearch = 'place_searching';
+    $(document).ready(function () {
+      var acomplete = new google.maps.places.Autocomplete((document.getElementById(placesearch)), {
+        types: ['geocode'],
+      });
+      google.maps.event.addListener(acomplete, 'place_changed', function () {
+        var near_place = acomplete.getplace();
+      });
+    });
+  </script>
 
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
     integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
@@ -80,10 +91,11 @@
 
   <link rel="stylesheet" href="slider.css" />
 
+
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-input-spinner@3.1.7/src/bootstrap-input-spinner.min.js"></script>
   <script>
@@ -143,7 +155,7 @@
 
 
     <form class="d-flex ">
-      <input class="form-control me-1" type="search" id="place_searching" placeholder="Enter location"
+      <input class="form-control me-1" type="search" id="place_searching" onkeypress=" " placeholder="Enter location"
         aria-label="Search">
 
       <input type="text" class="d-flex rounded-0" id="input-id" placeholder="Check In > Check Out">
@@ -178,8 +190,8 @@
  -->
     <form class="c" id="disable">
       <li class="nav-item dropdown form-control me-2">
-        <a class="nav-link " href="#" id="navbarDarkDropdownMenuLink" role="button"
-          data-bs-toggle="modal" data-bs-target="#exampleModal" aria-expanded="false">
+        <a class="nav-link " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" aria-expanded="false">
 
 
           <span id="showprice">Price Range</span>
@@ -218,7 +230,41 @@
     </div>
 
 
-    <button class="btn btn-outline-warning" type="submit">Search</button>
+
+
+    <!-- modal end -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn" id="srch-btn" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+      onclick="showData()">
+      Search
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel1">
+              Modal title
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p id="tot-guest"></p>
+            <p id="date-value"></p>
+            <p id="place-id"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Show details models ends here-->
+
+    <!--  -->
+
     <button class="btn btn-outline-warning" type="submit">Filter</button>
 
 
@@ -480,34 +526,208 @@
           </div>
         </div>
 
+        <div class="map-button">
+
+          <button class="btn btn-info rounded-circle bg-dark-gray" id="mapButton"><i
+              class="fas fa-map-marked-alt fa-2x"></i></button>
+
+        </div>
 
 
 
+        <div class="cancel-map-buttoon">
+
+          <button class="btn btn-danger rounded-circle" id="cancelMapButton"><i class="fas fa-times fa-2x"></i></button>
+
+        </div>
+
+
+
+
+        <section class="container">
+
+          <div class="map-section" id="mapSection">
+
+            <div id="map" class="map"></div>
+
+          </div>
+
+        </section>
 
 
         <script>
-
           var hdpkr = new HotelDatepicker(document.getElementById("input-id"));
 
-          /* guest */
+
+
+          /*  */
+
+          /* map  */
+
+          mapButton = document.getElementById("mapButton");
+
+          var map;
+
+
+
+          mapButton.onclick = function initMap() {
+
+            var mapSection = document.getElementById("mapSection");
+
+            mapSection.style.display = "block";
+
+
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+
+              zoom: 12,
+
+              center: {
+                lat: 23.114755108080562,
+                lng: 79.883518522479
+              },
+
+            });
+
+            // Set LatLng and title text for the markers. The first marker (Boynton Pass)
+
+            // receives the initial focus when tab is pressed. Use arrow keys to
+
+            // move between markers; press tab again to cycle through the map controls.
+
+            const tourStops = [
+
+              [{
+                lat: 22.599702806581845,
+                lng: 88.39424088400773
+              }, "Kolkata", " Price Range: $3000-$5000"],
+
+              [{
+                lat: 28.691475913704128,
+                lng: 77.22852492305866
+              }, "Delhi.", " Price Range: $5000-$10000"],
+
+              [{
+                lat: 12.985409025126328,
+                lng: 77.59659867663599
+              }, "Bangalore.", " Price Range: $4000-$7000"],
+
+              [{
+                lat: 32.243681418496095,
+                lng: 77.18917962138204
+              }, "Manali", " Price Range: $2000-$3000"],
+
+              [{
+                lat: 28.617787282114822,
+                lng: 77.20829654724511
+              }, "New Delhi", " Price Range: $2000-$4000"],
+
+              [{
+                lat: 23.794401896131493,
+                lng: 72.89422414334588
+              }, "Mumbai", " Price Range: $4000-$9000"],
+
+              [{
+                lat: 11.010439889966763,
+                lng: 76.24290913839175
+              }, "Kerala.", " Price Range: $2000-$5000"],
+
+            ];
+
+            // Create an info window to share between markers.
+
+            const infoWindow = new google.maps.InfoWindow();
+
+
+            // Create the markers.
+
+            tourStops.forEach(([position, title, pricerange]) => {
+
+              const marker = new google.maps.Marker({
+
+                position,
+
+                map,
+                title: `${title}` + `${pricerange}`,
+
+                // label: `${pricerange}`,
+
+                optimized: false,
+
+              });
+
+              // Add a click listener for each marker, and set up the info window.
+
+              marker.addListener("click", () => {
+
+                infoWindow.close();
+
+                infoWindow.setContent(marker.getTitle());
+
+                infoWindow.open(marker.getMap(), marker);
+
+              });
+
+            });
+            mapButton.style.display = "none";
+
+            cancelMapButton = document.getElementById("cancelMapButton");
+
+            cancelMapButton.style.display = "block";
+
+            cancelMapButton = document.getElementById("cancelMapButton");
+
+
+
+            cancelMapButton.onclick = function () {
+
+              var mapSection = document.getElementById("mapSection");
+
+              mapSection.style.display = "none";
+
+
+
+              mapButton = document.getElementById("mapButton");
+
+              mapButton.style.display = "block";
+
+
+
+              cancelMapButton = document.getElementById("cancelMapButton");
+
+              cancelMapButton.style.display = "none";
+
+
+
+            }
+
+          }
+
+
+
+          /* map end  */
 
           var count = 1;
           var countEl = document.getElementById("adet");
+
           function plus() {
             if (count < 20) {
               count++;
               countEl.value = count;
             }
           }
+
           function minus() {
             if (count > 1) {
               count--;
               countEl.value = count;
             }
           }
+          /* modal result */
+
+
 
           /*  */
-
         </script>
 
 
